@@ -1,0 +1,43 @@
+package com.example.vehiculo.repository;
+
+// Importaciones
+import java.util.ArrayList;
+import com.example.vehiculo.models.Vehiculo;
+
+public class VehiculoRepository {
+    
+    // Atributos
+    private ArrayList<Vehiculo> listaVehiculos = new ArrayList<>();
+
+    // Simulación de datos de vehiculo
+    public VehiculoRepository() {
+        listaVehiculos.add(new Vehiculo("1","Chevrolet","Sail",8000));
+        listaVehiculos.add(new Vehiculo("2","Cherry","Tiggo",18000));
+        listaVehiculos.add(new Vehiculo("3","Subaru","Impreza",40000));
+    }
+
+    // Obtener todos los vehiculos
+    public ArrayList<Vehiculo> obtenerTodos() {
+        return listaVehiculos;
+    }
+
+    // Obtener un vehiculo
+    public Vehiculo obtenerUno(String id) {
+        for (Vehiculo vehi : listaVehiculos) {
+            if(vehi.getId().equals(id)) {
+                return vehi;
+            }
+        }
+        return null;
+    }
+
+    // Insertar un vehiculo
+    public void insertarVehiculo(Vehiculo nuevoVehiculo) {
+        listaVehiculos.add(nuevoVehiculo);
+    }
+
+    // Eliminar un vehiculo
+    public void eliminarVehiculo(Vehiculo chaitoVehiculo) {
+        listaVehiculos.remove(chaitoVehiculo);
+    }
+}
