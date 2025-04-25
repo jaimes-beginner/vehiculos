@@ -1,5 +1,7 @@
 package com.example.vehiculo.controllers;
 
+/*---------------------------------------------------------*/
+
 // Importaciones
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.vehiculo.models.Vehiculo;
 import com.example.vehiculo.service.VehiculoServices;
+
+/*---------------------------------------------------------*/
 
 @RestController // Esta clase contralá peticiones HTTP
 @RequestMapping("/vehiculo") // Definir una ruta para el endpoint
