@@ -2,8 +2,10 @@ package com.example.vehiculo.repository;
 
 // Importaciones
 import java.util.ArrayList;
+import org.springframework.stereotype.Repository;
 import com.example.vehiculo.models.Vehiculo;
 
+@Repository
 public class VehiculoRepository {
     
     // Atributos
