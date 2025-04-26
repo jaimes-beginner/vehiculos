@@ -46,4 +46,6 @@ public class VehiculoRepository {
     public void eliminarVehiculo(Vehiculo chaitoVehiculo) {
         listaVehiculos.remove(chaitoVehiculo);
     }
+
+    
 }

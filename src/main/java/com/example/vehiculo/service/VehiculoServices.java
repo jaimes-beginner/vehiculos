@@ -4,6 +4,8 @@ package com.example.vehiculo.service;
 
 // Importaciones
 import java.util.ArrayList;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,12 @@ public class VehiculoServices {
     
     @Autowired
     private VehiculoRepository vehiRepo;
+
+    // Agregando un vehiculo
+    public void agregar(Vehiculo vehi) {
+        vehi.setId(UUID.randomUUID().toString());
+        vehiRepo.insertarVehiculo(vehi);
+    }
 
     // Obtener todos los vehiculos
     public ArrayList<Vehiculo> obtenerTodos() {
