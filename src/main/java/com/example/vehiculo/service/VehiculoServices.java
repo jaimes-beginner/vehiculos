@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import com.example.vehiculo.models.ModificarVehiculo;
 import com.example.vehiculo.models.Vehiculo;
 import com.example.vehiculo.repository.VehiculoRepository;
@@ -21,22 +20,22 @@ import com.example.vehiculo.repository.VehiculoRepository;
 public class VehiculoServices {
     
     @Autowired
-    private VehiculoRepository vehiRepo;
+    private VehiculoRepository vehiRepoServ;
 
     // Agregando un vehiculo
-    public void agregar(Vehiculo vehi) {
+    public void agregarVehiculoServ(Vehiculo vehi) {
         vehi.setId(UUID.randomUUID().toString());
-        vehiRepo.insertarVehiculo(vehi);
+        vehiRepoServ.insertarVehiculoRepo(vehi);
     }
 
     // Obtener todos los vehiculos
-    public ArrayList<Vehiculo> obtenerTodos() {
-        return vehiRepo.obtenerTodos();
+    public ArrayList<Vehiculo> obtenerTodosServ() {
+        return vehiRepoServ.obtenerTodosRepo();
     }
 
     // Obtener un vehiculo
-    public Vehiculo obtenerUno(String id) {
-        Vehiculo vehi = vehiRepo.obtenerUno(id);
+    public Vehiculo obtenerUnoServ(String id) {
+        Vehiculo vehi = vehiRepoServ.obtenerUnoRepo(id);
         if(vehi == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
@@ -44,17 +43,17 @@ public class VehiculoServices {
     }
 
     // Eliminar vehiculo
-    public void eliminarVehiculo(String id) {
-        Vehiculo vehi = vehiRepo.obtenerUno(id);
+    public void eliminarVehiculoServ(String id) {
+        Vehiculo vehi = vehiRepoServ.obtenerUnoRepo(id);
         if(vehi == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-        vehiRepo.eliminarVehiculo(vehi);
+        vehiRepoServ.eliminarVehiculoRepo(vehi);
     }
 
     // Modificar precio del vehiculo
-    public void modificar(ModificarVehiculo modVehiculo, String id) {
-        Vehiculo vehi = obtenerUno(id);
+    public void modificarVehiculoServ(ModificarVehiculo modVehiculo, String id) {
+        Vehiculo vehi = obtenerUnoServ(id);
         vehi.setPrecio(modVehiculo.getPrecio());
     }
 

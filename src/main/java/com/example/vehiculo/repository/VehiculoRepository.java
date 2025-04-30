@@ -23,12 +23,12 @@ public class VehiculoRepository {
     }
 
     // Obtener todos los vehiculos
-    public ArrayList<Vehiculo> obtenerTodos() {
+    public ArrayList<Vehiculo> obtenerTodosRepo() {
         return listaVehiculos;
     }
 
     // Obtener un vehiculo
-    public Vehiculo obtenerUno(String id) {
+    public Vehiculo obtenerUnoRepo(String id) {
         for (Vehiculo vehi : listaVehiculos) {
             if(vehi.getId().equals(id)) {
                 return vehi;
@@ -38,12 +38,12 @@ public class VehiculoRepository {
     }
 
     // Insertar un vehiculo
-    public void insertarVehiculo(Vehiculo nuevoVehiculo) {
+    public void insertarVehiculoRepo(Vehiculo nuevoVehiculo) {
         listaVehiculos.add(nuevoVehiculo);
     }
 
     // Eliminar un vehiculo
-    public void eliminarVehiculo(Vehiculo chaitoVehiculo) {
+    public void eliminarVehiculoRepo(Vehiculo chaitoVehiculo) {
         listaVehiculos.remove(chaitoVehiculo);
     }
     

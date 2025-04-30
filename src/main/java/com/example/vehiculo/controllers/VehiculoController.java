@@ -26,39 +26,39 @@ public class VehiculoController {
     
     // Atributos
     @Autowired
-    private VehiculoServices vehiServices;
+    private VehiculoServices vehiServicesContr;
 
     // Obtener todos los vehiculos de la 'base de datos'
     @GetMapping("")
-    public ArrayList<Vehiculo> todos() {
-        return vehiServices.obtenerTodos();
+    public ArrayList<Vehiculo> todosServ() {
+        return vehiServicesContr.obtenerTodosServ();
     }
 
     // Obtener un vehiculo de la 'base de datos'
     @GetMapping("/{id}")
-    public Vehiculo obtenerUno(@PathVariable String id) {
+    public Vehiculo obtenerUnoContr(@PathVariable String id) {
         System.out.println("> > > Buscando id: "+id);
-        return vehiServices.obtenerUno(id);
+        return vehiServicesContr.obtenerUnoServ(id);
     }
 
     // Eliminar un vehiculo de la 'base de datos'
     @DeleteMapping("/{id}")
-    public String eliminarVehiculo(@PathVariable String id) {
-        vehiServices.eliminarVehiculo(id);
+    public String eliminarVehiculoContr(@PathVariable String id) {
+        vehiServicesContr.eliminarVehiculoServ(id);
         return "Eliminado!";
     }
 
     // Agregar un vehiculo 
     @PostMapping("") // Para agregar algo nuevo (un vehiculo)
-    public String agregar(@Valid @RequestBody Vehiculo vehi) {
-        vehiServices.agregar(vehi);
+    public String agregarVehiculoContr(@Valid @RequestBody Vehiculo vehi) {
+        vehiServicesContr.agregarVehiculoServ(vehi);
         return "Agregado";
     }
 
     // Modificar precio del vehiculo
     @PutMapping("/{id}")
-    public String modificarVehiculo(@PathVariable String id, @RequestBody ModificarVehiculo vehi) {
-        vehiServices.modificar(vehi, id);
+    public String modificarVehiculoContr(@PathVariable String id, @RequestBody ModificarVehiculo vehi) {
+        vehiServicesContr.modificarVehiculoServ(vehi, id);
         return "Modificado!";
     }
 
