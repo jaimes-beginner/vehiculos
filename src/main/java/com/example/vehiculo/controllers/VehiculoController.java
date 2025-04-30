@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.example.vehiculo.models.ModificarVehiculo;
 import com.example.vehiculo.models.Vehiculo;
 import com.example.vehiculo.service.VehiculoServices;
 import jakarta.validation.Valid;
@@ -46,11 +48,18 @@ public class VehiculoController {
         return "Eliminado!";
     }
 
-    // Agregar un vehiculo
+    // Agregar un vehiculo 
     @PostMapping("") // Para agregar algo nuevo (un vehiculo)
     public String agregar(@Valid @RequestBody Vehiculo vehi) {
         vehiServices.agregar(vehi);
         return "Agregado";
+    }
+
+    // Modificar precio del vehiculo
+    @PutMapping("/{id}")
+    public String modificarVehiculo(@PathVariable String id, @RequestBody ModificarVehiculo vehi) {
+        vehiServices.modificar(vehi, id);
+        return "Modificado!";
     }
 
 }

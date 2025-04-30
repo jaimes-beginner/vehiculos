@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
+import com.example.vehiculo.models.ModificarVehiculo;
 import com.example.vehiculo.models.Vehiculo;
 import com.example.vehiculo.repository.VehiculoRepository;
 
@@ -48,6 +50,12 @@ public class VehiculoServices {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         vehiRepo.eliminarVehiculo(vehi);
+    }
+
+    // Modificar precio del vehiculo
+    public void modificar(ModificarVehiculo modVehiculo, String id) {
+        Vehiculo vehi = obtenerUno(id);
+        vehi.setPrecio(modVehiculo.getPrecio());
     }
 
 }
